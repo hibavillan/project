@@ -1,14 +1,18 @@
 import React from 'react';
 
-
-
 const Home = () => {
   return (
-    <div style={{marginLeft:"300px" , marginTop:"50px", marginRight:"75px" ,marginBottom:"100px"}}
-      >
-      <h1 color='secondary' >Welcome to RecipeHub</h1>
-      <p  > Explore the world of delicious recipes!!.</p>
+   
+   <section className='hero'>
+    <div className='content'>
+  <h1>Learn,Cook,Share.</h1>
+  <p>
+    Explore the taste of RecipeHub!
+  </p>
+  <a href="C">Get Started</a>
     </div>
+   </section>
+
   );
 };
 
