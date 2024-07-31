@@ -1,24 +1,58 @@
-import React from 'react'
-import {Box, Button,Toolbar,Typography,AppBar} from '@mui/material'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
 const Navbar = () => {
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color='secondary'>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            RECIPE HUB
-          </Typography>
-          <Button><Link to={'/'} style={{textDecoration:'none',color:'white'}} >Home</Link></Button>
-          <Button><Link to={'/B'} style={{textDecoration:'none',color:'white'}} >Add Recipe</Link></Button>
-          <Button><Link to={'/C'} style={{textDecoration:'none',color:'white'}} >Login</Link></Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-    </div>
-  )
-}
+    <nav style={styles.navbar}>
+      <div style={styles.navbarContainer}>
+        <a href="/" style={styles.brand}>
+          RecipeHub
+        </a>
+        <ul style={styles.navLinks}>
+          <li><a href="/" style={styles.navLink}>Home</a></li>
+          <li><a href="/C" style={styles.navLink}>Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+const styles = {
+  navbar: {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    backgroundColor: 'transparent',
+    padding: '1rem 2rem',
+    boxShadow: 'none',
+    zIndex: 1000,
+  },
+  navbarContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  brand: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: 'white',
+    textDecoration: 'none',
+  },
+  navLinks: {
+    listStyle: 'none',
+    display: 'flex',
+    gap: '1.5rem',
+    margin: 0,
+    padding: 0,
+  },
+  navLink: {
+    fontSize: '1rem',
+    color: 'white',
+    textDecoration: 'none',
+    transition: 'color 0.3s',
+  },
+  navLinkHover: {
+    color: '#007BFF',
+  },
+};
+
+export default Navbar;
