@@ -1,15 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar2 = ({ isLoggedIn, onLogout }) => {
   return (
     <nav style={styles.navbar}>
       <div style={styles.navbarContainer}>
-        <a href="/" style={styles.brand}>
-          RecipeHub
-        </a>
+        <a href="/" style={styles.brand}>RecipeHub</a>
         <ul style={styles.navLinks}>
-          <li><a href="/" style={styles.navLink}>Home</a></li>
-          <li><a href="/C" style={styles.navLink}>Login</a></li>
+          <li><Link to="/" style={styles.navLink}>Home</Link></li>
+          {isLoggedIn ? (
+            <>
+              <li><Link to="/B" style={styles.navLink}>Add Recipes</Link></li>
+              <li><a href="/" onClick={onLogout} style={styles.navLink}>Logout</a></li>
+            </>
+          ) : (
+            <li><Link to="/C" style={styles.navLink}>Login</Link></li>
+          )}
         </ul>
       </div>
     </nav>
@@ -50,9 +56,6 @@ const styles = {
     textDecoration: 'none',
     transition: 'color 0.3s',
   },
-  navLinkHover: {
-    color: '#007BFF',
-  },
 };
 
-export default Navbar;
+export default Navbar2;
